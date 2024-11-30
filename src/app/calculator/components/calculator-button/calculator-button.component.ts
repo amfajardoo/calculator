@@ -2,11 +2,11 @@ import {
 	ChangeDetectionStrategy,
 	Component,
 	type ElementRef,
-	HostBinding,
 	input,
 	linkedSignal,
 	output,
-	viewChild,
+	signal,
+	viewChild
 } from '@angular/core';
 
 @Component({
@@ -37,11 +37,21 @@ export class CalculatorButtonComponent {
 		transform: this.booleanFn,
 	});
 
-	@HostBinding('class.w-2/4') get doubleSize() {
-		return this.isDoubleSize();
-	}
+	isPressed = signal(false);
 
 	handleClick() {
 		this.emitClick.emit(this.innerText());
+	}
+
+	keyboardPressedStyle(key: string) {
+		if(!this.innerText() || key !== this.innerText()) {
+			return;
+		}
+
+		this.isPressed.set(true);
+
+		setTimeout(() => {
+			this.isPressed.set(false);
+		}, 100);
 	}
 }
