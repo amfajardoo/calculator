@@ -13,7 +13,6 @@ export class CalculatorService {
   specialAllowedOperators = ['+/-', '%', '.', '=', 'C', 'Result', 'Enter', 'Backspace', 'Escape', 'Delete'];
 
   constructNumber(value: string) {
-    console.log(value);
     if(![...this.allowedNumbers, ...this.allowedOperators, ...this.specialAllowedOperators].includes(value)) {
       return;
     }
