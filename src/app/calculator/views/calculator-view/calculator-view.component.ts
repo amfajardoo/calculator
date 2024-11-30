@@ -2,12 +2,10 @@ import { CalculatorComponent } from '@/calculator/components/calculator/calculat
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'calculator-view',
-  imports: [CalculatorComponent],
-  templateUrl: './calculator-view.component.html',
-  styleUrl: './calculator-view.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+	selector: 'calculator-view',
+	imports: [CalculatorComponent],
+	templateUrl: './calculator-view.component.html',
+	styleUrl: './calculator-view.component.scss',
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class CalculatorViewComponent {
-
-}
+export default class CalculatorViewComponent {}

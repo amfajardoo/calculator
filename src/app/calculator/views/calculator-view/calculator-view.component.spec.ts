@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalculatorViewComponent } from './calculator-view.component';
 
 describe('CalculatorViewComponent', () => {
-  let component: CalculatorViewComponent;
-  let fixture: ComponentFixture<CalculatorViewComponent>;
+	let component: CalculatorViewComponent;
+	let fixture: ComponentFixture<CalculatorViewComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [CalculatorViewComponent]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [CalculatorViewComponent],
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(CalculatorViewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(CalculatorViewComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });
