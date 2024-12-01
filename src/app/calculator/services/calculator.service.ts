@@ -50,7 +50,6 @@ export class CalculatorService {
 
     // limit characters length
     if(this.result().length >= 9) {
-      console.log('Max length reached');
       return;
     }
 
