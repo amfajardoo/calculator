@@ -34,7 +34,6 @@ export class CalculatorService {
     }
 
     if(value === 'Delete' || value === 'Escape' || value === 'C') {
-      console.log('Clear');
       this.result.set('0');
       this.subResult.set('0');
       this.lastOperator.set('');
@@ -50,7 +49,7 @@ export class CalculatorService {
     }
 
     // limit characters length
-    if(this.result().length >= 10) {
+    if(this.result().length >= 9) {
       console.log('Max length reached');
       return;
     }
@@ -96,14 +95,10 @@ export class CalculatorService {
         result = number1 - number2;
         break;
       case '*':
-        result = number1 * number2;
-        break;
-      case '/':
-        result = number1 / number2;
-        break;
       case 'x':
         result = number1 * number2;
         break;
+      case '/':
       case '÷':
         result = number1 / number2;
         break;

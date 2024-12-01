@@ -1,29 +1,34 @@
-import { TestBed } from '@angular/core/testing';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+	let fixture: ComponentFixture<AppComponent>;
+	let compiled: HTMLElement;
+
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [AppComponent],
+			providers: [provideExperimentalZonelessChangeDetection()]
 		}).compileComponents();
+		fixture = TestBed.createComponent(AppComponent);
+		compiled = fixture.nativeElement;
 	});
 
 	it('should create the app', () => {
-		const fixture = TestBed.createComponent(AppComponent);
 		const app = fixture.componentInstance;
 		expect(app).toBeTruthy();
 	});
 
-	it(`should have the 'calculator' title`, () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		const app = fixture.componentInstance;
-		expect(app.title).toEqual('calculator');
-	});
-
-	it('should render title', () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		fixture.detectChanges();
-		const compiled = fixture.nativeElement as HTMLElement;
-		expect(compiled.querySelector('h1')?.textContent).toContain('Hello, calculator');
+	it('should render router-outlet wrapped with css class', () => {
+		const divElement = compiled.querySelector('div');
+		const mustHaveClasses = 'min-w-screen min-h-screen bg-slate-600 flex items-center justify-center px-5 py-5'.split(' ');
+		const divClasses = divElement?.classList.value.split(' ');
+		
+		for (const className of mustHaveClasses) {
+			expect(divClasses).toContain(className);
+		}
+		expect(divElement).toBeTruthy();
+		expect(compiled.querySelector('router-outlet')).toBeTruthy();
 	});
 });

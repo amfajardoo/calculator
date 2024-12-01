@@ -1,6 +1,7 @@
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
+import CalculatorViewComponent from './calculator-view.component';
 
-import { CalculatorViewComponent } from './calculator-view.component';
 
 describe('CalculatorViewComponent', () => {
 	let component: CalculatorViewComponent;
@@ -9,6 +10,7 @@ describe('CalculatorViewComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			imports: [CalculatorViewComponent],
+			providers: [provideExperimentalZonelessChangeDetection()]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(CalculatorViewComponent);
